@@ -11,3 +11,10 @@ git pull origin master
 
 to remove a file:
 git rm <file>
+
+to host via github pages:
+* have index.html file in home directory of your repo directory (where .git is)
+* go to repository page ( example: https://axal25.github.io/BareJS/ )
+* go to settings
+* scroll down to 'Github pages'
+* choose Source (example: master branch)
