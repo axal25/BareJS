@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title">Statements And Keywords And Errors</title>
+    <script src="./scripts/statements.js"></script>
+    <script src="./scripts/keywords.js"></script>
+    <script src="./scripts/errors.js"></script>
+    <script src="./scripts/errorsNonStrict.js"></script>
+    <script src="./scripts/jsonUtils.js"></script>
+</head>
+<body>
+    <h1 id="h1.1"><script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script></h1>
+    <p id="getX">paragraph getX - notSet</p>
+    <p id="getY">paragraph getY - notSet</p>
+    <p id="getZ">paragraph getZ - notSet</p>
+    <script>setPGetXYZ();</script>
+    <br>
+
+    <p>
+        <form id="form1" oninput="sum.value = getSum(parseFloat(param1.value), parseFloat(param2.value))">
+            Param #1: <input type="text" id="param1" value="1"> <br>
+            Param #2: <input type="text" id="param2" value="2"> <br>
+            Sum: <output id="sum" for="param1 param2" form="form1"></output>
+        </form>
+        <script>sum.value = getValueParseFloatAndGetSum(param1, param2)</script>
+    </p>
+    <br>
+
+    <p>
+        <form id="form2" oninput="sum2.value = getValueParseFloatAndGetSum(param21, param22)">
+            0 <input type="range" id="param21" value="50" min=-5 max="1000"> 1000 <br>
+            + <br>
+            <input type="number" id="param22" value="50">
+            = <br>
+            <output id="sum2" for="param21 param22" form="form2"></output>
+        </form>
+    </p>
+    <br>
+
+    <h2>Keywords:</h2>
+    <p>
+        <table>
+            <tr>
+                <th>Keyword</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>break</td>
+                <td>terminate switch / loop</td>
+            </tr>
+            <tr>
+                <td>continue</td>
+                <td>leaves loop to start at the top</td>
+            </tr>
+            <tr>
+                <td>debugger</td>
+                <td>stop execution, calls debugging function (if possible)</td>
+            </tr>
+            <tr>
+                <td>do ... while</td>
+                <td>do while loop</td>
+            </tr>
+            <tr>
+                <td>for</td>
+                <td>for loop</td>
+            </tr>
+            <tr>
+                <td>function</td>
+                <td>declares function</td>
+            </tr>
+            <tr>
+                <td>if ... else</td>
+                <td>if else block</td>
+            </tr>
+            <tr>
+                <td>return</td>
+                <td>returns (something) from function</td>
+            </tr>
+            <tr>
+                <td>switch</td>
+                <td>switch block</td>
+            </tr>
+            <tr>
+                <td>try ... catch</td>
+                <td>try catch block</td>
+            </tr>
+            <tr>
+                <td>var</td>
+                <td>declares variable</td>
+            </tr>
+        </table>
+    </p>
+
+    <h2>Keywords use examples:</h2>
+    <h3>doWhile loop:</h3>
+    <p>
+        <form id="form3" oninput="doWhileExampleResult.value = doWhileLoopExample( parseFloat( doWhileExampleParam.value ) )">
+            doWhileExample function parameter: <input type="text" id="doWhileExampleParam" value="0"> <br>
+            doWhileExample function result: <output id="doWhileExampleResult" for="doWhileExampleParam" form="form3">0</output> <br>
+        </form>
+    </p>
+
+    <h3>for loop:</h3>
+    <p>
+        <button id="doForLoopExampleButton" onclick="forExampleResult.innerHTML = '<br>' + forLoopExample()">Do forLoopExample()</button>
+        <form id="form4">
+            forExample function result: <output id="forExampleResult" for="forExampleParam" form="form4">defaultValue</output> <br>
+        </form>
+    </p>
+
+    <h3>switch loop:</h3>
+    <p>
+    <form id="form5" oninput="switchExampleResult.value = switchExample( parseFloat( switchExampleParam.value ) )">
+        switchExample function parameter: <input type="text" id="switchExampleParam" value="0"> <br>
+        switchExample function result: <output id="switchExampleResult" for="switchExampleParam" form="form5">0</output> <br>
+    </form>
+    </p>
+
+    <h2>Error examples and handling:</h2>
+    <h3>eval() - good examples - no error</h3>
+
+    <h4 id="evalErrorHandlingParam1"></h4>
+    <p id="evalErrorHandlingResult1"></p> <br>
+
+    <h4 id="evalErrorHandlingParam2"></h4>
+    <p id="evalErrorHandlingResult2"></p> <br>
+
+    <h3>eval() - no error - bad but working example (without 'use strict;') </h3>
+
+    <h4 id="evalErrorHandlingParam3"></h4>
+    <p id="evalErrorHandlingResult3"></p> <br>
+
+    <h3>eval() - cause errors - bad examples</h3>
+
+    <h4 id="evalErrorHandlingParam4"></h4>
+    <p id="evalErrorHandlingResult4"></p> <br>
+
+    <h4 id="evalErrorHandlingParam5"></h4>
+    <p id="evalErrorHandlingResult5"></p> <br>
+
+    <h4 id="evalErrorHandlingParam6"></h4>
+    <p id="evalErrorHandlingResult6"></p> <br>
+    <script>
+        var googSumDefinition = "result = -16 + 16;";
+        var goodJson = '({"firstName":"Jacek","lastName":"Oles"})';
+        var badEvalButWorking = 'eval = "test";';
+        var badJson = '({"firstName":,:"Oles")';
+        var badFunction = 'function test)({return "test";}';
+        var badEval = 'var y = new eval();';
+        setEvalErrorHandlingResult( googSumDefinition, "evalErrorHandlingParam1", "evalErrorHandlingResult1" );
+        setEvalErrorHandlingResult( goodJson, "evalErrorHandlingParam2", "evalErrorHandlingResult2" );
+        setEvalErrorHandlingResult( badEvalButWorking, "evalErrorHandlingParam3", "evalErrorHandlingResult3" );
+        setEvalErrorHandlingResult( badFunction, "evalErrorHandlingParam4", "evalErrorHandlingResult4" );
+        setEvalErrorHandlingResult( badJson, "evalErrorHandlingParam5", "evalErrorHandlingResult5" );
+        setEvalErrorHandlingResult( badEval, "evalErrorHandlingParam6", "evalErrorHandlingResult6" );
+    </script>
+
+    <a href="../index.html">back to Index</a>
+</body>
+</html>

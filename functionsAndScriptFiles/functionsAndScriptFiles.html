@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title">Functions and Script files (.js)</title>
+    <script>
+        function firstFunction() {
+            document.getElementById('firstParagraph').innerText = 'First paragraph - function defined in head';
+        }
+    </script>
+    <script src="./functionsAndScriptFiles.js"></script>
+    <script src="./scripts/secondFunctionsAndScriptFiles.js"></script>
+</head>
+<body>
+    <h1 id="h1.1"></h1>
+
+    <p id="firstParagraph">1st Paragraph</p>
+    <button onclick="firstFunction()">1st Button for 1st Paragraph</button> <br>
+
+    <p id="secondParagraph">2nd Paragraph</p>
+    <button onclick="secondFunction()">2nd Button for 2nd Paragraph</button> <br>
+
+    <p id="thirdParagraph">3rd Paragraph</p>
+    <button onclick="thirdFunction()">3rd Button for 3rd Paragraph</button> <br>
+
+    <p id="fourthParagraph">4rth Paragraph</p>
+    <button onclick="fourthFunction()">4th Button for 4th Paragraph</button> <br>
+
+    <a href="../index.html">back to Index</a>
+
+    <script>
+        function secondFunction() {
+            document.getElementById('secondParagraph').innerText = 'Second paragraph - function defined in body';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title">Different types of messages</title>
+</head>
+<body>
+    <h1 id="h1.1"><script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script></h1>
+
+    <p id="innerTextOrHTML"></p>
+    <script>
+        document.getElementById('innerTextOrHTML').innerText = 'document.getElementById(...) .innerText or .innerHTML = ...';
+    </script>
+
+
+
+    <p>
+        <script>
+            document.writeln('document.write(...)');
+        </script>
+    </p>
+
+
+
+    <script>
+        function replaceWholeDocumentWith( string ) {
+            document.write( string );
+        }
+    </script>
+    <p>
+        <button onclick="replaceWholeDocumentWith('document.write(...) after loading page')">document.write( 'document.write(...) after loading page' )</button>
+    </p>
+
+
+
+    <script>
+        function windowAlertExample() {
+            window.alert("window.alert(...)");
+        }
+    </script>
+    <p>
+        <button onclick="windowAlertExample()">window.alert( "window.alert(...)" )</button>
+    </p>
+
+
+
+    <script>
+        function consoleLogExample() {
+            console.log('console.log(...)');
+        }
+    </script>
+    <p>
+        <button onclick="consoleLogExample()">console.log( "console.log(...)" )</button>
+    </p>
+
+
+
+    <a href="../index.html">back to Index</a>
+</body>
+</html>

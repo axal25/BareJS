@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title">Buttons: Light Bulb On/Off & Change size</title>
+    <script>
+        var lightBulbOff = '../resources/img/lightbulb_off.gif';
+        var lightBulbOn = '../resources/img/lightbulb_on.gif';
+        var lightBulbDefaultStyle = 'width:100px';
+        var lightBulbSwitchedStyle = 'width:50px';
+        var lightBulbCurrentStyle = lightBulbDefaultStyle;
+    </script>
+</head>
+<body>
+    <h1 id="h1.1"><script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script></h1>
+
+    <h2>Change value of src attribute of image via JS</h2>
+    <p><img id="lightBulbImage" src="../resources/img/lightbulb_off.gif"></p>
+    <p>
+        <button onclick="document.getElementById('lightBulbImage').src = lightBulbOff">Off</button>
+        <button onclick="document.getElementById('lightBulbImage').src = lightBulbOn">On</button>
+    </p>
+    <p>
+        <button id="switchImgStyleButton" onclick="
+            if( lightBulbCurrentStyle == lightBulbDefaultStyle ){
+                lightBulbCurrentStyle = lightBulbSwitchedStyle;
+                document.getElementById('switchImgStyleButton').innerText = 'Switch image style to &quot;' + lightBulbDefaultStyle + '&quot;';
+            }
+            else{
+                lightBulbCurrentStyle = lightBulbDefaultStyle;
+                document.getElementById('switchImgStyleButton').innerText = 'Switch image style to &quot;' + lightBulbSwitchedStyle + '&quot;';
+            }
+            document.getElementById('lightBulbImage').style = lightBulbCurrentStyle;
+        ">
+            <script>
+                document.getElementById('switchImgStyleButton').innerText = 'Switch image style to "' + lightBulbSwitchedStyle + '"';
+            </script>
+        </button>
+    </p>
+
+    <a href="../index.html">back to Index</a>
+</body>
+</html>
