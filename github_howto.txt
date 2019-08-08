@@ -1,0 +1,13 @@
+git clone https://github.com/axal25/BareJS
+copy contents from https://github.com/axal25/CV/ 
+to local of your existing project
+git add *
+git config --global user.email login@gmail.com
+git commit -m "first commit from terminal"
+git remote add origin https://github.com/user_name/repository_name
+git remote -v
+git push -u origin master
+git pull origin master
+
+to remove a file:
+git rm <file>
