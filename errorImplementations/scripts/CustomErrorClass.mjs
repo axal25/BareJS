@@ -1,6 +1,10 @@
 'use strict';
 
 export class CustomErrorClass extends Error {
+    // firefox doesn't support fields
+    // code = "Default ExampleErrorCode";
+    // exampleProperty = "Default valueOfExampleProperty";
+    // customProperty = "Default valueOfCustomProperty";
 
     // override constructor
     constructor( message, code, exampleProperty, customProperty ) {
@@ -11,9 +15,6 @@ export class CustomErrorClass extends Error {
         super.name = "Error";
         this.name = "CustomErrorClass";
         this.name = this.name + " extends " + super.name;
-        this.code = "Default ExampleErrorCode";
-        this.exampleProperty = "Default valueOfExampleProperty";
-        this.customProperty = "Default valueOfCustomProperty";
 
         this.code = code;
         this.exampleProperty = exampleProperty;
