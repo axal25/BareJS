@@ -1,18 +1,19 @@
 'use strict';
 
 export class CustomErrorClass extends Error {
-    name = "CustomErrorClass";
-    code = "Default ExampleErrorCode";
-    exampleProperty = "Default valueOfExampleProperty";
-    customProperty = "Default valueOfCustomProperty";
 
     // override constructor
     constructor( message, code, exampleProperty, customProperty ) {
         // super( message );
         super();
         super.message = message;
-        // super.name = "Error";
+        this.message = message;
+        super.name = "Error";
+        this.name = "CustomErrorClass";
         this.name = this.name + " extends " + super.name;
+        this.code = "Default ExampleErrorCode";
+        this.exampleProperty = "Default valueOfExampleProperty";
+        this.customProperty = "Default valueOfCustomProperty";
 
         this.code = code;
         this.exampleProperty = exampleProperty;
