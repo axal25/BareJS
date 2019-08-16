@@ -1,14 +1,14 @@
 'use strict';
 
 function doWhileLoopExample( n ) {
-    var i = 0;
-    var errorMsg = undefined;
+    let i = 0;
+    let errorMsg = undefined;
     try {
         if( isNaN(n) ) {
             throw new TypeError("parameter 'n' must be a number");
         }
         else {
-            var number = Number(n);
+            let number = Number(n);
             if( n >= 0 ) {
                 do {
                     if( n == 0 ) break;
@@ -43,10 +43,10 @@ function doWhileLoopExample( n ) {
 }
 
 function forLoopExample() {
-    var html = undefined;
-    var cars = ['Volvo', 'Mercedes', 'Audi', 'Scoda', 'Polonez', 'BMW', 'Lada'];
+    let html = undefined;
+    let cars = ['Volvo', 'Mercedes', 'Audi', 'Scoda', 'Polonez', 'BMW', 'Lada'];
     cars[7] = 'Toyota';
-    for(var i = 0; i < cars.length; i++) {
+    for(let i = 0; i < cars.length; i++) {
         if( html == undefined ) {
             html = "";
         }

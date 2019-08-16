@@ -2,12 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title id="title">Statements And Keywords And Errors</title>
+    <title id="title">Statements And Keywords</title>
     <script src="./scripts/statements.js"></script>
     <script src="./scripts/keywords.js"></script>
-    <script src="./scripts/errors.js"></script>
-    <script src="./scripts/errorsNonStrict.js"></script>
-    <script src="./scripts/jsonUtils.js"></script>
 </head>
 <body>
     <h1 id="h1.1"><script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script></h1>
@@ -116,45 +113,6 @@
         switchExample function result: <output id="switchExampleResult" for="switchExampleParam" form="form5">0</output> <br>
     </form>
     </p>
-
-    <h2>Error examples and handling:</h2>
-    <h3>eval() - good examples - no error</h3>
-
-    <h4 id="evalErrorHandlingParam1"></h4>
-    <p id="evalErrorHandlingResult1"></p> <br>
-
-    <h4 id="evalErrorHandlingParam2"></h4>
-    <p id="evalErrorHandlingResult2"></p> <br>
-
-    <h3>eval() - no error - bad but working example (without 'use strict;') </h3>
-
-    <h4 id="evalErrorHandlingParam3"></h4>
-    <p id="evalErrorHandlingResult3"></p> <br>
-
-    <h3>eval() - cause errors - bad examples</h3>
-
-    <h4 id="evalErrorHandlingParam4"></h4>
-    <p id="evalErrorHandlingResult4"></p> <br>
-
-    <h4 id="evalErrorHandlingParam5"></h4>
-    <p id="evalErrorHandlingResult5"></p> <br>
-
-    <h4 id="evalErrorHandlingParam6"></h4>
-    <p id="evalErrorHandlingResult6"></p> <br>
-    <script>
-        var googSumDefinition = "result = -16 + 16;";
-        var goodJson = '({"firstName":"Jacek","lastName":"Oles"})';
-        var badEvalButWorking = 'eval = "test";';
-        var badJson = '({"firstName":,:"Oles")';
-        var badFunction = 'function test)({return "test";}';
-        var badEval = 'var y = new eval();';
-        setEvalErrorHandlingResult( googSumDefinition, "evalErrorHandlingParam1", "evalErrorHandlingResult1" );
-        setEvalErrorHandlingResult( goodJson, "evalErrorHandlingParam2", "evalErrorHandlingResult2" );
-        setEvalErrorHandlingResult( badEvalButWorking, "evalErrorHandlingParam3", "evalErrorHandlingResult3" );
-        setEvalErrorHandlingResult( badFunction, "evalErrorHandlingParam4", "evalErrorHandlingResult4" );
-        setEvalErrorHandlingResult( badJson, "evalErrorHandlingParam5", "evalErrorHandlingResult5" );
-        setEvalErrorHandlingResult( badEval, "evalErrorHandlingParam6", "evalErrorHandlingResult6" );
-    </script>
 
     <a href="../index.html">back to Index</a>
 </body>

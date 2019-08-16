@@ -1,9 +1,12 @@
 'use strict';
 
-function setEvalErrorHandlingResult( param, paramElementId, resultElementId ) {
+import { toJsonStringIfJson } from '../../utils/scripts/jsonUtils.mjs';
+import { errorHandlingExampleEval } from "./errorsNonStrict.mjs";
+
+export function setEvalErrorHandlingResult( param, paramElementId, resultElementId ) {
     setElementIdText( paramElementId, param );
-    var returnMsgObj = errorHandlingExampleEval( param );
-    var innerHTML = "errorHandlingExampleEval( " + param + " ) = <br>" +
+    let returnMsgObj = errorHandlingExampleEval( param );
+    let innerHTML = "errorHandlingExampleEval( " + param + " ) = <br>" +
         "&emsp;" + "functionName: " + returnMsgObj.functionName + "<br>" +
         "&emsp;" + "functionParameter: " + returnMsgObj.functionParameter + "<br>" +
         "&emsp;" + "isSuccessful: " + returnMsgObj.isSuccessful + "<br>" +
@@ -20,8 +23,8 @@ function setElementIdText( elementId, innerText ) {
     document.getElementById( elementId ).innerText = innerText;
 }
 
-function handleError( error ) {
-    var jsonError = undefined;
+export function handleError( error ) {
+    let jsonError = undefined;
     if( error instanceof EvalError ) {
         jsonError = getJsonErrorAndLog( error, false );
     } else if( error instanceof RangeError ){
@@ -42,7 +45,7 @@ function handleError( error ) {
 
 function getJsonErrorAndLog( error, isUnpredicted ) {
     if( error instanceof Error ) {
-        var jsonErrorIsUnpredicted = appendErrorByUnpredicted( error, isUnpredicted );
+        let jsonErrorIsUnpredicted = appendErrorByUnpredicted( error, isUnpredicted );
         return jsonErrorIsUnpredicted;
     }
     else {
@@ -54,7 +57,7 @@ function appendErrorByUnpredicted( error, isUnpredicted ) {
     return {"errorName":error.name,"errorMessage":error.message,"isUnpredicted":isUnpredicted};
 }
 
-function ReturnMsgObj( functionName, param, isSuccessful, processedParam, errorMsgObj ) {
+export function ReturnMsgObj( functionName, param, isSuccessful, processedParam, errorMsgObj ) {
     return {
         "functionName":functionName,
         "functionParameter":param,

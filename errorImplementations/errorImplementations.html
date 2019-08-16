@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title">Error implementations</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "errorImplementations.css"/>
+</head>
+<body style="">
+    <h1 id="h1.1"><script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script></h1>
+
+    <h2>String "error" - not a real error</h2>
+    <p id="stringErrorNotRealError">default value of paragraph id="stringErrorNotRealError"</p>
+    <script type="module">
+        import { printStringErrorToConsoleAndElement } from "./scripts/stringError.mjs";
+        printStringErrorToConsoleAndElement( "stringErrorNotRealError" );
+    </script>
+
+    <h2>Real error object</h2>
+    <p id="realErrorObject">default value of paragraph id="realErrorObject"</p>
+    <script type="module">
+        import { printRealErrorObjectToConsoleAndElement } from "./scripts/realErrorObject.mjs";
+        printRealErrorObjectToConsoleAndElement( "realErrorObject" );
+    </script>
+
+    <h2>Custom properties error object</h2>
+    <p id="customPropertiesErrorObject">default value of paragraph id="customPropertiesErrorObject"</p>
+    <script type="module">
+        import { printCustomPropertiesErrorObjectToConsoleAndElement } from "./scripts/customPropertiesErrorObject.mjs";
+        printCustomPropertiesErrorObjectToConsoleAndElement( "customPropertiesErrorObject" );
+    </script>
+
+    <h2>Custom error class object</h2>
+    <p id="customErrorClassObject">default value of paragraph id="customErrorClassObject"</p>
+    <script type="module">
+        import { printCustomErrorClassObjectToConsoleAndElement } from "./scripts/customErrorClassObject.mjs";
+        printCustomErrorClassObjectToConsoleAndElement( "customErrorClassObject" );
+    </script>
+
+    <a href="../index.html">back to Index</a>
+</body>
+</html>

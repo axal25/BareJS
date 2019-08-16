@@ -1,8 +1,10 @@
-function errorHandlingExampleEval(param) {
-    var functionName = "errorHandlingExampleEval(param)";
-    var errorMsgObj = undefined;
-    var processedParam = undefined;
-    var isSuccessful = undefined;
+import { handleError, ReturnMsgObj } from "./errors.mjs";
+
+export function errorHandlingExampleEval(param) {
+    let functionName = "errorHandlingExampleEval(param)";
+    let errorMsgObj = undefined;
+    let processedParam = undefined;
+    let isSuccessful = undefined;
     try{
         processedParam = eval( param );
         isSuccessful = true;
@@ -12,7 +14,7 @@ function errorHandlingExampleEval(param) {
         isSuccessful = false;
     }
     finally {
-        var returnMsgObj = ReturnMsgObj(
+        let returnMsgObj = ReturnMsgObj(
             functionName,
             param,
             isSuccessful,
