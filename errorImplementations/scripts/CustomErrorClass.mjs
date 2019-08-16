@@ -8,8 +8,9 @@ export class CustomErrorClass extends Error {
 
     // override constructor
     constructor( message, code, exampleProperty, customProperty ) {
-        // super( message );
-        super();
+        // firefox doesn't treats only super( message ) constructor as Error class constructor
+        super( message );
+        // super();
         super.message = message;
         this.message = message;
         super.name = "Error";
