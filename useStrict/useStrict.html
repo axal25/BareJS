@@ -2,9 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title id="title">Use Strict</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "useStrict.css"/>
 </head>
 <body>
-$END$
+    <h1 id="h1.1">default "h1.1"</h1>
+    <script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script>
+    <h2>Dry explanation - no JS scripts running</h2>
+    <div>
+        <p>
+            Strict mode is declared by adding
+            <h3>"use strict";</h3>
+            to the beginning of a script or a function. <br>
+            Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode).
+        </p>
+        <table>
+            <tr>
+                <th>Code</th>
+                <th>Explanation</th>
+                <th>Run test code button</th>
+            </tr>
+            <tr>
+                <td id="codeExample1">
+                    <script type="module">
+                        import { setElementIdInnerTextToTextFromFile } from "./scripts/useStrict.mjs";
+                        setElementIdInnerTextToTextFromFile("./scripts/example1.mjs", "codeExample1");
+                    </script>
+                </td>
+                <td>
+                    This will cause an error because x is not declared
+                </td>
+                <td>
+                    <input id="buttonExample1" type="button" value="Try this code!"/>
+                    <script type="module">
+                        import { setButtonOnClickToScriptFromFile } from "./scripts/useStrict.mjs";
+                        setButtonOnClickToScriptFromFile("./scripts/example1.mjs", "buttonExample1");
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td id="codeExample2">
+                    <script type="module">
+                        import { setElementIdInnerTextToTextFromFile } from "./scripts/useStrict.mjs";
+                        setElementIdInnerTextToTextFromFile("./scripts/example2.mjs", "codeExample2");
+                    </script>
+                </td>
+                <td>
+                    This will also cause an error because y is not declared
+                </td>
+                <td>
+                    <input id="buttonExample2" type="button" value="Try this code!"/>
+                    <script type="module">
+                        import { setButtonOnClickToScriptFromFile } from "./scripts/useStrict.mjs";
+                        setButtonOnClickToScriptFromFile("./scripts/example2.mjs", "buttonExample2");
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td id="codeExample3">
+                    <script type="module">
+                        import { setElementIdInnerTextToTextFromFile } from "./scripts/useStrict.mjs";
+                        setElementIdInnerTextToTextFromFile("./scripts/example3.mjs", "codeExample3");
+                    </script>
+                </td>
+                <td>
+                    This will also cause an error because y is not declared <br>
+                    x = 3.14; will not cause an error because it's before "use strict"; declaration
+                </td>
+                <td>
+                    <input id="buttonExample3" type="button" value="Try this code!"/>
+                    <script type="module">
+                        import { setButtonOnClickToScriptFromFile } from "./scripts/useStrict.mjs";
+                        setButtonOnClickToScriptFromFile("./scripts/example3.mjs", "buttonExample3");
+                    </script>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h2>Examples</h2>
+    <p>
+
+    </p>
+
+    <a href="../index.html">back to Index</a>
 </body>
 </html>
