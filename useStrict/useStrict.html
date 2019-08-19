@@ -10,81 +10,154 @@
 <body>
     <h1 id="h1.1">default "h1.1"</h1>
     <script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script>
-    <h2>Dry explanation - no JS scripts running</h2>
-    <div>
+    <div id="div1">
+        <h2>Strict Mode declaration</h2>
         <p>
             Strict mode is declared by adding
             <h3>"use strict";</h3>
             to the beginning of a script or a function. <br>
             Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode).
+            <h4> Warning: <b><i>"use strict";</i></b> is recognized only at the start of script of function!</h4>
         </p>
         <table>
             <tr>
                 <th>Code</th>
                 <th>Explanation</th>
                 <th>Run test code button</th>
+                <th>Error message</th>
             </tr>
             <tr>
-                <td id="codeExample1">
-                    <script type="module">
-                        import { setElementIdInnerTextToTextFromFile } from "./scripts/useStrict.mjs";
-                        setElementIdInnerTextToTextFromFile("./scripts/example1.mjs", "codeExample1");
-                    </script>
-                </td>
-                <td>
-                    This will cause an error because x is not declared
-                </td>
+                <td id="codeExample1"></td>
+                <td> This will cause an error because x is not declared </td>
                 <td>
                     <input id="buttonExample1" type="button" value="Try this code!"/>
-                    <script type="module">
-                        import { setButtonOnClickToScriptFromFile } from "./scripts/useStrict.mjs";
-                        setButtonOnClickToScriptFromFile("./scripts/example1.mjs", "buttonExample1");
-                    </script>
                 </td>
+                <td id="messageExample1"></td>
+                <script type="module">
+                    import { setElementIdInnerTextToFileContent, setButtonOnClickToScriptFromFile, setElementIdToMessageError } from "./scripts/useStrict.mjs";
+                    let exampleNumber = 1;
+                    let fileName = "./scripts/example" + exampleNumber + ".mjs";
+                    setElementIdInnerTextToFileContent(fileName, "codeExample" + exampleNumber);
+                    setButtonOnClickToScriptFromFile(fileName, "buttonExample" + exampleNumber);
+                    setElementIdToMessageError(fileName, "messageExample" + exampleNumber);
+                </script>
             </tr>
             <tr>
-                <td id="codeExample2">
-                    <script type="module">
-                        import { setElementIdInnerTextToTextFromFile } from "./scripts/useStrict.mjs";
-                        setElementIdInnerTextToTextFromFile("./scripts/example2.mjs", "codeExample2");
-                    </script>
-                </td>
-                <td>
-                    This will also cause an error because y is not declared
-                </td>
+                <td id="codeExample2"></td>
+                <td> This will also cause an error because y is not declared </td>
                 <td>
                     <input id="buttonExample2" type="button" value="Try this code!"/>
-                    <script type="module">
-                        import { setButtonOnClickToScriptFromFile } from "./scripts/useStrict.mjs";
-                        setButtonOnClickToScriptFromFile("./scripts/example2.mjs", "buttonExample2");
-                    </script>
                 </td>
+                <td id="messageExample2"></td>
+                <script type="module">
+                    import { setElementIdInnerTextToFileContent, setButtonOnClickToScriptFromFile, setElementIdToMessageError } from "./scripts/useStrict.mjs";
+                    let exampleNumber = 2;
+                    let fileName = "./scripts/example" + exampleNumber + ".mjs";
+                    setElementIdInnerTextToFileContent(fileName, "codeExample" + exampleNumber);
+                    setButtonOnClickToScriptFromFile(fileName, "buttonExample" + exampleNumber);
+                    setElementIdToMessageError(fileName, "messageExample" + exampleNumber);
+                </script>
             </tr>
             <tr>
-                <td id="codeExample3">
-                    <script type="module">
-                        import { setElementIdInnerTextToTextFromFile } from "./scripts/useStrict.mjs";
-                        setElementIdInnerTextToTextFromFile("./scripts/example3.mjs", "codeExample3");
-                    </script>
-                </td>
+                <td id="codeExample3"></td>
                 <td>
                     This will also cause an error because y is not declared <br>
                     x = 3.14; will not cause an error because it's before "use strict"; declaration
                 </td>
                 <td>
                     <input id="buttonExample3" type="button" value="Try this code!"/>
-                    <script type="module">
-                        import { setButtonOnClickToScriptFromFile } from "./scripts/useStrict.mjs";
-                        setButtonOnClickToScriptFromFile("./scripts/example3.mjs", "buttonExample3");
-                    </script>
                 </td>
+                <td id="messageExample3"></td>
+                <script type="module">
+                    import { setElementIdInnerTextToFileContent, setButtonOnClickToScriptFromFile, setElementIdToMessageError } from "./scripts/useStrict.mjs";
+                    let exampleNumber = 3;
+                    let fileName = "./scripts/example" + exampleNumber + ".mjs";
+                    setElementIdInnerTextToFileContent(fileName, "codeExample" + exampleNumber);
+                    setButtonOnClickToScriptFromFile(fileName, "buttonExample" + exampleNumber);
+                    setElementIdToMessageError(fileName, "messageExample" + exampleNumber);
+                </script>
             </tr>
         </table>
     </div>
-    <h2>Examples</h2>
-    <p>
-
-    </p>
+    <div id="div2">
+        <h2>Syntax for <b><i>"use strict";</i></b></h2>
+        <p>
+            The syntax was designed to be compatible with older versions of JavaScript. <br>
+            <b><i>"use strict";</i></b> only works on newer compilers, only those understand what it means. <br>
+            Numeric liters like <br>
+            <b><i>4 + 5;</i></b> <br>
+            or string literal like <br>
+            <b><i>"Johnny Doe";</i></b> <br>
+            ...have no effects, they compile to non-existing variable and disappear.
+        </p>
+    </div>
+    <div id="div3">
+        <h2>Why use Strict Mode at all?</i></b></h2>
+        <p>
+            Easier to write secure code. <br>
+            Forces to use correct syntax (earlier you could use "bad syntax"). <br>
+            &emsp; &emsp; It was possible to mistype name of variable and create a new one on accident. <br> <br>
+            In Strict Mode writing to: <br>
+            &emsp; &emsp; &emsp; &emsp; non-writable property <br>
+            &emsp; &emsp; &emsp; &emsp; getter-only property  <br>
+            &emsp; &emsp; &emsp; &emsp; non-existing property <br>
+            &emsp; &emsp; &emsp; &emsp; non-existing variable <br>
+            &emsp; &emsp; &emsp; &emsp; non-existing object <br>
+            &emsp; &emsp; ... would throw error; <br>
+            &emsp; &emsp; In NOT Strict Mode you wouldn't receive error feedback on assigning values to non-writable properties.
+        </p>
+    </div>
+    <div id="div4">
+        <h2>What's NOT allowed in Strict Mode</h2>
+        <script type="module">
+            import { createAndPopulateTableInDiv } from "./scripts/createDynamicallyTable.mjs";
+            let tableOfExplanations = [
+                "Object usage without declaration.",
+                "Deletion of 'var' defined variable or object.",
+                "Deletion of function.",
+                "Function parameter name duplication",
+                "Octal numeric literals.",
+                "Octal escape characters.",
+                "Writing to read-only property.",
+                "Writing to get-only property.",
+                "Deletion of non-deletable property.",
+                "Usage of 'eval' word as variable name.",
+                "Usage of 'arguments' word as variable name.",
+                "'with' statement.",
+                "Creation of variable via 'eval()' in scope " + "\n\r" +
+                "from which function was called",
+                "'this' keyword changes behaviour in Strict Mode." + "\n\r" +
+                "'this' is a reference to the object calling the function." + "\n\r" +
+                "in Strict Mode 'this' === undefined" + "\n\r" +
+                "in NON strict mode 'this' == window (global object)"
+            ];
+            createAndPopulateTableInDiv(4, 4, 17, tableOfExplanations);
+        </script>
+    </div>
+    <div id="div5">
+        <h2>Keywords reserved for future of JavaScript</h2>
+        <p>
+            Keywords reserved for future of JavaScript:
+            <ul>
+                <li>implements</li>
+                <li>interface</li>
+                <li>let</li>
+                <li>package</li>
+                <li>private</li>
+                <li>protected</li>
+                <li>public</li>
+                <li>static</li>
+                <li>yield</li>
+            </ul>
+        </p>
+        <script type="module">
+            import { createAndPopulateTableInDiv } from "./scripts/createDynamicallyTable.mjs";
+            let tableOfExplanations = [
+                "Usage of 'public' keyword reserved for future of JavaScript."
+            ];
+            createAndPopulateTableInDiv(5, 18, 18, tableOfExplanations);
+        </script>
+    </div>
 
     <a href="../index.html">back to Index</a>
 </body>

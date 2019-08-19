@@ -1,62 +1,104 @@
 'use strict';
 
-export function setElementIdInnerTextToTextFromFile( fileName, elementId ) {
-    fetch( fileName ).then(
-        response => checkResponse( response, fileName )
-        // function( response ) {
-        //     if( response.status !== 200 ) {
-        //         throw new Error('Could not read file "' + fileName + '". Status code: ' + response.status);
-        //     }
-        //     return response.text();
-        // }
-    ).then(
-        fileContent => setElementIdInnerTextToFileContent( fileContent, elementId )
-    ).catch(
-        status => logErrorStatus( status )
+import { getFileContent, logFileContent } from "../../utils/scripts/fileUtils.mjs";
+
+export function setElementIdInnerTextToFileContent( fileName, elementId ) {
+    getFileContent( fileName ).then(
+        function( fileContent ) {
+            document.getElementById( elementId ).innerText = fileContent;
+        }
     );
 }
 
 export function setButtonOnClickToScriptFromFile( fileName, elementId ) {
-    fetch( fileName ).then(
-        response => checkResponse( response, fileName )
-    ).then(
-        fileContent => setElementIdOnClickToFileScript( fileContent, elementId )
-    ).catch(
-        status => logErrorStatus( status )
+    getFileContent( fileName ).then(
+        fileContent => setElementIdOnClickToFileScript( fileContent, elementId, fileName )
     );
 }
 
-function checkResponse( response, fileName ) {
-    if( response.status !== 200 ) {
-        throw new Error('Could not read file "' + fileName + '". Status: ' + response.status);
-    }
-    return response.text();
+export function setElementIdToMessageError( fileName, elementId ) {
+    getFileContent( fileName ).then(
+        fileContent => setElementIdToMessageErrorFromFileContent( fileContent, elementId, fileName )
+    );
 }
 
-function logFileContent( fileContent ) {
-    console.log( "fetch( fileName ).then(...).then(...): " + "File content: " + "\n\r" + fileContent );
-}
-
-function setElementIdInnerTextToFileContent( fileContent, elementId ) {
+function setElementIdToMessageErrorFromFileContent( fileContent, elementId , fileName ) {
     if( elementId ) {
-        document.getElementById( elementId ).innerText = fileContent;
+        try {
+            evalGlobally( fileContent );
+            document.getElementById( elementId ).innerText = getNoErrorMessage( fileName );
+        }
+        catch( error ) {
+            document.getElementById( elementId ).innerText = error.message + "\n\r" + "at file \"" + fileName + "\"";
+        }
+    }
+    else {
+        throw new Error("No elementId \"" + elementId + "\"");
     }
 }
 
-function setElementIdOnClickToFileScript( fileContent, elementId ) {
+function setElementIdOnClickToFileScript( fileContent, elementId, fileName ) {
     if( elementId ) {
-        document.getElementById( elementId ).onclick = function(){
-            logFileContent( fileContent );
-            try {
-                eval(fileContent);
-            }
-            catch( error ) {
-                console.log( error );
-            }
-        };
+        document.getElementById( elementId ).onclick = function() { evalFileContent( fileContent, fileName ) };
+    }
+    else {
+        throw new Error("No elementId \"" + elementId + "\"");
     }
 }
 
-function logErrorStatus( status ) {
-    console.log( "fetch( fileName ).then(...).then(...).catch(...): " + "status: " + "\n\r" + status );
+function evalFileContent( fileContent, fileName ) {
+    try {
+        logFileContent( fileContent );
+        evalGlobally( fileContent );
+        alert( getNoErrorMessage( fileName ) );
+    }
+    catch( error ) {
+        alert( error.stack.toString() );
+        throw error;
+    }
+}
+
+function getNoErrorMessage( fileName ) {
+    return "No error at file \"" + fileName + "\"" + "\n\r" +
+        "This should not happen.";
+}
+
+function evalGlobally( string ) {
+    deleteGlobally();
+
+    // indirect eval call
+    // to evaluate in global scope
+    // example:
+    /**
+     * x = 3.14;
+     * myFunction();
+     *
+     * function myFunction() {
+     *        "use strict";
+     *        y = 3.14;
+     * }
+     *
+     */
+    // would not work properly with
+    // eval( string );
+    // different ways to evaluate in global scope
+    /**
+     * window.eval( string );
+     * (1, eval)( string );
+     *
+     * let differentNameForEvalFunc = eval;
+     * differentNameForEvalFunc( string );
+     *
+     * let obj = { eval: eval };
+     * obj.eval( string );
+     */
+    eval.call(null, string);
+}
+
+function deleteGlobally() {
+    // can't delete variable defined with 'var' example: 'var z;'
+    // can't delete predefined properties like Math.PI
+    let deleteExp = "delete( window.x );" + "\n\r";
+    deleteExp += "delete( window.y );" + "\n\r";
+    eval.call( null, deleteExp);
 }

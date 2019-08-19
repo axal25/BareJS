@@ -1,2 +1,2 @@
 "use strict";
-x = 3.14;
+var x = 010;

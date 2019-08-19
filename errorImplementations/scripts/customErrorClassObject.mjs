@@ -4,7 +4,6 @@ import { setElementIdHTML, getErrorObjectDefaultMessage } from "./stringError.mj
 import { getHTMLcodeForErrorObject } from "./realErrorObject.mjs";
 import { toFormattedJsonStringIfJson } from "../../utils/scripts/jsonUtils.mjs";
 import { CustomErrorClass } from "./CustomErrorClass.mjs"
-// import CustomErrorClass from "./CustomErrorClass.mjs";
 import { formatErrorStack } from "./customPropertiesErrorObject.mjs";
 
 export function printCustomErrorClassObjectToConsoleAndElement(elementId) {
