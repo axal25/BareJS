@@ -1,5 +1,5 @@
 "use strict";
 function myFunction() {
-    console.log( this );
+    console.log( "this === " + this );
 }
 myFunction();
