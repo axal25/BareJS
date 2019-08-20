@@ -6,18 +6,24 @@
     <link rel = "stylesheet"
           type = "text/css"
           href = "useStrict.css"/>
+    <script src="./scripts/preCode.js"></script>
 </head>
 <body>
-    <h1 id="h1.1">default "h1.1"</h1>
-    <script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script>
+    <header>
+        <img>
+        <h1 id="h1.1">default "h1.1"</h1>
+        <script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script>
+        <a href="https://unsplash.com/photos/QQ9LainS6tI">Photo by Nate Grant on Unsplash</a> <br>
+        <a href="../index.html">go back to Index</a>
+    </header>
     <div id="div1">
         <h2>Strict Mode declaration</h2>
         <p>
             Strict mode is declared by adding
-            <h3>"use strict";</h3>
+            <strong>"use strict";</strong>
             to the beginning of a script or a function. <br>
             Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode).
-            <h4> Warning: <b><i>"use strict";</i></b> is recognized only at the start of script of function!</h4>
+            <h4> Warning: <strong>"use strict";</strong> is recognized only at the start of script of function!</h4>
         </p>
         <table>
             <tr>
@@ -34,10 +40,10 @@
                 </td>
                 <td id="messageExample1"></td>
                 <script type="module">
-                    import { setElementIdInnerTextToFileContent, setButtonOnClickToScriptFromFile, setElementIdToMessageError } from "./scripts/useStrict.mjs";
+                    import { setElementIdInnerHTMLToFileCode, setButtonOnClickToScriptFromFile, setElementIdToMessageError } from "./scripts/useStrict.mjs";
                     let exampleNumber = 1;
                     let fileName = "./scripts/example" + exampleNumber + ".mjs";
-                    setElementIdInnerTextToFileContent(fileName, "codeExample" + exampleNumber);
+                    setElementIdInnerHTMLToFileCode(fileName, "codeExample" + exampleNumber);
                     setButtonOnClickToScriptFromFile(fileName, "buttonExample" + exampleNumber);
                     setElementIdToMessageError(fileName, "messageExample" + exampleNumber);
                 </script>
@@ -50,10 +56,10 @@
                 </td>
                 <td id="messageExample2"></td>
                 <script type="module">
-                    import { setElementIdInnerTextToFileContent, setButtonOnClickToScriptFromFile, setElementIdToMessageError } from "./scripts/useStrict.mjs";
+                    import { setElementIdInnerHTMLToFileCode, setButtonOnClickToScriptFromFile, setElementIdToMessageError } from "./scripts/useStrict.mjs";
                     let exampleNumber = 2;
                     let fileName = "./scripts/example" + exampleNumber + ".mjs";
-                    setElementIdInnerTextToFileContent(fileName, "codeExample" + exampleNumber);
+                    setElementIdInnerHTMLToFileCode(fileName, "codeExample" + exampleNumber);
                     setButtonOnClickToScriptFromFile(fileName, "buttonExample" + exampleNumber);
                     setElementIdToMessageError(fileName, "messageExample" + exampleNumber);
                 </script>
@@ -69,10 +75,10 @@
                 </td>
                 <td id="messageExample3"></td>
                 <script type="module">
-                    import { setElementIdInnerTextToFileContent, setButtonOnClickToScriptFromFile, setElementIdToMessageError } from "./scripts/useStrict.mjs";
+                    import { setElementIdInnerHTMLToFileCode, setButtonOnClickToScriptFromFile, setElementIdToMessageError } from "./scripts/useStrict.mjs";
                     let exampleNumber = 3;
                     let fileName = "./scripts/example" + exampleNumber + ".mjs";
-                    setElementIdInnerTextToFileContent(fileName, "codeExample" + exampleNumber);
+                    setElementIdInnerHTMLToFileCode(fileName, "codeExample" + exampleNumber);
                     setButtonOnClickToScriptFromFile(fileName, "buttonExample" + exampleNumber);
                     setElementIdToMessageError(fileName, "messageExample" + exampleNumber);
                 </script>
@@ -80,19 +86,19 @@
         </table>
     </div>
     <div id="div2">
-        <h2>Syntax for <b><i>"use strict";</i></b></h2>
+        <h2>Syntax for <strong>"use strict";</strong></h2>
         <p>
             The syntax was designed to be compatible with older versions of JavaScript. <br>
-            <b><i>"use strict";</i></b> only works on newer compilers, only those understand what it means. <br>
+            <strong>"use strict";</strong> only works on newer compilers, only those understand what it means. <br>
             Numeric liters like <br>
-            <b><i>4 + 5;</i></b> <br>
+            <strong>4 + 5;</strong> <br>
             or string literal like <br>
-            <b><i>"Johnny Doe";</i></b> <br>
+            <strong>"Johnny Doe";</strong> <br>
             ...have no effects, they compile to non-existing variable and disappear.
         </p>
     </div>
     <div id="div3">
-        <h2>Why use Strict Mode at all?</i></b></h2>
+        <h2>Why use Strict Mode at all?</strong></h2>
         <p>
             Easier to write secure code. <br>
             Forces to use correct syntax (earlier you could use "bad syntax"). <br>
@@ -130,8 +136,8 @@
                 "'this' is a reference to the object calling the function." + "\n\r" +
                 "in Strict Mode 'this' === undefined" + "\n\r" +
                 "in NON strict mode 'this' == window (global object)" + "\n\r" +
-                "THIS SHOULD NOT THROW ERROR" + "\n\r" +
-                "THIS SHOULD LOG IN CONSOLE: " + "\n\r" +
+                "THIS EXAMPLE SHOULD NOT THROW ERROR" + "\n\r" +
+                "THIS EXAMPLE SHOULD LOG IN CONSOLE: " + "\n\r" +
                 "this === undefined"
             ];
             createAndPopulateTableInDiv(4, 4, 17, tableOfExplanations);
@@ -162,6 +168,7 @@
         </script>
     </div>
 
+    <br>
     <a href="../index.html">back to Index</a>
 </body>
 </html>

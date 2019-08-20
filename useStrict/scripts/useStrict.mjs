@@ -2,10 +2,10 @@
 
 import { getFileContent, logFileContent } from "../../utils/scripts/fileUtils.mjs";
 
-export function setElementIdInnerTextToFileContent( fileName, elementId ) {
+export function setElementIdInnerHTMLToFileCode( fileName, elementId ) {
     getFileContent( fileName ).then(
         function( fileContent ) {
-            document.getElementById( elementId ).innerText = fileContent;
+            document.getElementById( elementId ).innerHTML = "<pre><code>" + fileContent.trim() + "</code></pre>";
         }
     );
 }

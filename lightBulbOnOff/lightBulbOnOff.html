@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title id="title">Buttons: Light Bulb On/Off & Change size</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "../index.css"/>
     <script>
         var lightBulbOff = '../resources/img/lightbulb_off.gif';
         var lightBulbOn = '../resources/img/lightbulb_on.gif';
@@ -12,7 +15,13 @@
     </script>
 </head>
 <body>
-    <h1 id="h1.1"><script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script></h1>
+    <header>
+        <img>
+        <h1 id="h1.1">default "h1.1"</h1>
+        <script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script>
+        <a href="https://unsplash.com/photos/QQ9LainS6tI">Photo by Nate Grant on Unsplash</a> <br>
+        <a href="../index.html">go back to Index</a>
+    </header>
 
     <h2>Change value of src attribute of image via JS</h2>
     <p><img id="lightBulbImage" src="../resources/img/lightbulb_off.gif"></p>

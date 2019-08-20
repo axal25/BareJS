@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title id="title">Functions and Script files (.js)</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "../index.css"/>
     <script>
         function firstFunction() {
             document.getElementById('firstParagraph').innerText = 'First paragraph - function defined in head';
@@ -12,7 +15,13 @@
     <script src="./scripts/secondFunctionsAndScriptFiles.js"></script>
 </head>
 <body>
-    <h1 id="h1.1"></h1>
+    <header>
+        <img>
+        <h1 id="h1.1">default "h1.1"</h1>
+        <script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script>
+        <a href="https://unsplash.com/photos/QQ9LainS6tI">Photo by Nate Grant on Unsplash</a> <br>
+        <a href="../index.html">go back to Index</a>
+    </header>
 
     <p id="firstParagraph">1st Paragraph</p>
     <button onclick="firstFunction()">1st Button for 1st Paragraph</button> <br>

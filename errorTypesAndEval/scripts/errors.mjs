@@ -4,7 +4,7 @@ import { toJsonStringIfJson } from '../../utils/scripts/jsonUtils.mjs';
 import { errorHandlingExampleEval } from "./errorsNonStrict.mjs";
 
 export function setEvalErrorHandlingResult( param, paramElementId, resultElementId ) {
-    setElementIdText( paramElementId, param );
+    setElementIdHTML( paramElementId, "<pre><code>" + param + "</code></pre>");
     let returnMsgObj = errorHandlingExampleEval( param );
     let innerHTML = "errorHandlingExampleEval( " + param + " ) = <br>" +
         "&emsp;" + "functionName: " + returnMsgObj.functionName + "<br>" +

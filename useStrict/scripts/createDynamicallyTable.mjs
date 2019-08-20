@@ -2,7 +2,7 @@
 
 import {
     setButtonOnClickToScriptFromFile,
-    setElementIdInnerTextToFileContent,
+    setElementIdInnerHTMLToFileCode,
     setElementIdToMessageError
 } from "./useStrict.mjs";
 
@@ -148,7 +148,7 @@ function populateTdRow( divNumber, tdRowNumber, startExampleNumber, explanation 
 
     let exampleNumber = tdRowNumber;
     let fileName = "./scripts/example" + exampleNumber + ".mjs";
-    setElementIdInnerTextToFileContent(fileName, "td" + divNumber + "." + exampleNumber + "." + 0);
+    setElementIdInnerHTMLToFileCode(fileName, "td" + divNumber + "." + exampleNumber + "." + 0);
     if( !explanation ) throw new Error("!explanation");
     td2.innerText = explanation;
     createButton( divNumber, tdRowNumber, 2 );

@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Button: Display Date & Time</title>
+    <title id="title">Button: Display Date & Time</title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "../index.css"/>
 </head>
 <body>
-    <h1>Button: Display Date & Time</h1>
+    <header>
+        <img>
+        <h1 id="h1.1">default "h1.1"</h1>
+        <script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script>
+        <a href="https://unsplash.com/photos/QQ9LainS6tI">Photo by Nate Grant on Unsplash</a> <br>
+        <a href="../index.html">go back to Index</a>
+    </header>
     <button type="button" onclick="var paragraphDateString = 'Paragraph &ldquo;paragraphDate&rdquo;'; document.getElementById('paragraphDate').innerHTML = paragraphDateString + ' ' + Date()">
         Clicking me will display Date in paragraph &ldquo;paragraphDate&rdquo;
     </button>
