@@ -33,3 +33,19 @@ td pre code {
 td input {
     max-width: 7em;
 }
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    background-color: lightsteelblue;
+    border: 1px solid #e81c4f;
+    border-radius: 290486px;
+    color: white;
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+    text-transform: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 0.6em;
+    letter-spacing: 0.0em;
+}

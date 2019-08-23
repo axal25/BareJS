@@ -118,3 +118,27 @@ a:hover {
   background: #e81c4f;
   color: white;
 }
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  background-color: lightsteelblue;
+  border: 1px solid #e81c4f;
+  border-radius: 290486px;
+  color: white;
+  padding: 0.5em 0.5em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 0.8em;
+  letter-spacing: 0.2em;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #e81c4f;
+  color: white;
+}

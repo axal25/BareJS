@@ -15,9 +15,8 @@
         <a href="https://unsplash.com/photos/QQ9LainS6tI">Photo by Nate Grant on Unsplash</a> <br>
         <a href="../index.html">go back to Index</a>
     </header>
-    <button type="button" onclick="var paragraphDateString = 'Paragraph &ldquo;paragraphDate&rdquo;'; document.getElementById('paragraphDate').innerHTML = paragraphDateString + ' ' + Date()">
-        Clicking me will display Date in paragraph &ldquo;paragraphDate&rdquo;
-    </button>
+    <input type="button" value="Clicking me will display Date in paragraph &ldquo;paragraphDate&rdquo;"
+           onclick="let paragraphDateString = 'Paragraph &ldquo;paragraphDate&rdquo;'; document.getElementById('paragraphDate').innerHTML = paragraphDateString + ' ' + Date()"/>
     <p id="paragraphDate">Paragraph &ldquo;paragraphDate&rdquo;</p>
 
     <a href="../index.html">back to Index</a>

@@ -26,25 +26,24 @@
     <h2>Change value of src attribute of image via JS</h2>
     <p><img id="lightBulbImage" src="../resources/img/lightbulb_off.gif"></p>
     <p>
-        <button onclick="document.getElementById('lightBulbImage').src = lightBulbOff">Off</button>
-        <button onclick="document.getElementById('lightBulbImage').src = lightBulbOn">On</button>
+        <input type="button" onclick="document.getElementById('lightBulbImage').src = lightBulbOff" value="Off"/>
+        <input type="button" onclick="document.getElementById('lightBulbImage').src = lightBulbOn" value="On"/>
     </p>
     <p>
-        <button id="switchImgStyleButton" onclick="
+        <input type="button" id="switchImgStyleButton" onclick="
             if( lightBulbCurrentStyle == lightBulbDefaultStyle ){
                 lightBulbCurrentStyle = lightBulbSwitchedStyle;
-                document.getElementById('switchImgStyleButton').innerText = 'Switch image style to &quot;' + lightBulbDefaultStyle + '&quot;';
+                document.getElementById('switchImgStyleButton').value = 'Switch image style to &quot;' + lightBulbDefaultStyle + '&quot;';
             }
             else{
                 lightBulbCurrentStyle = lightBulbDefaultStyle;
-                document.getElementById('switchImgStyleButton').innerText = 'Switch image style to &quot;' + lightBulbSwitchedStyle + '&quot;';
+                document.getElementById('switchImgStyleButton').value = 'Switch image style to &quot;' + lightBulbSwitchedStyle + '&quot;';
             }
             document.getElementById('lightBulbImage').style = lightBulbCurrentStyle;
-        ">
-            <script>
-                document.getElementById('switchImgStyleButton').innerText = 'Switch image style to "' + lightBulbSwitchedStyle + '"';
-            </script>
-        </button>
+        "/>
+        <script>
+            document.getElementById('switchImgStyleButton').value = 'Switch image style to "' + lightBulbSwitchedStyle + '"';
+        </script>
     </p>
 
     <a href="../index.html">back to Index</a>

@@ -28,31 +28,30 @@
     <p>Paragraph with default style</p>
     <p id="paragraphCustomStyle">Paragraph with custom style</p>
 
-    <button id="changeParagraphStyleButton" onclick="
+    <input type="button" id="changeParagraphStyleButton" onclick="
         if( currentStyleFontSize == defaultStyleFontSize ) currentStyleFontSize = switchedStyleFontSize;
         else currentStyleFontSize = defaultStyleFontSize;
-        document.getElementById('changeParagraphStyleButton').innerText = 'Switch image style to fontsize=&lsquo;' +
+        document.getElementById('changeParagraphStyleButton').value = 'Switch image style to fontsize=&lsquo;' +
             document.getElementById('paragraphCustomStyle').style.fontSize + '&rsquo;';
         document.getElementById('paragraphCustomStyle').style.fontSize = currentStyleFontSize;
-    ">
-        <script>
-            document.getElementById('paragraphCustomStyle').style.fontSize = defaultStyleFontSize;
-            document.getElementById('changeParagraphStyleButton').innerText = "Switch image style to fontsize='" + switchedStyleFontSize + "'";
-        </script>
-    </button>
+    "/>
+    <script>
+        document.getElementById('paragraphCustomStyle').style.fontSize = defaultStyleFontSize;
+        document.getElementById('changeParagraphStyleButton').value = "Switch image style to fontsize='" + switchedStyleFontSize + "'";
+    </script>
 
-    <button id="hideShowParagraphStyleButton" onclick="
+    <input type="button" id="hideShowParagraphStyleButton" onclick="
         if( currentStyleDisplay == defaultStyleDisplay ) currentStyleDisplay = switchedStyleDisplay;
         else currentStyleDisplay = defaultStyleDisplay;
-        document.getElementById('hideShowParagraphStyleButton').innerText = 'Switch image style to display=&lsquo;' +
+        document.getElementById('hideShowParagraphStyleButton').value = 'Switch image style to display=&lsquo;' +
             document.getElementById('paragraphCustomStyle').style.display + '&rsquo;';
         document.getElementById('paragraphCustomStyle').style.display = currentStyleDisplay;
     ">
         <script>
             document.getElementById('paragraphCustomStyle').style.display = defaultStyleDisplay;
-            document.getElementById('hideShowParagraphStyleButton').innerText = "Switch image style to display='" + switchedStyleDisplay + "'";
+            document.getElementById('hideShowParagraphStyleButton').value = "Switch image style to display='" + switchedStyleDisplay + "'";
         </script>
-    </button>
+    </input>
     <br>
 
     <a href="../index.html">back to Index</a><br>
