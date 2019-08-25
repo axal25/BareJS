@@ -15,6 +15,36 @@ export function getTemplateStringsExample1_2() {
         "\n" + getTaggedTemplateStringsExample`a = ${a}\nb = ${b}\nc = ${c}\na + b + c = ${ a + b + c }` + "\n";
 }
 
+const answer = `abbbaaasdadqwdqwdasd`;
+const overridingAnswer = `"this is overriding answer?"`;
+const messages = {
+    success: `the answer = ${answer}. coz everything is good.`,
+    failure: `the answer = ${answer}. coz everything is fucking trash.`
+};
+
+const messages2 = ( answer2 ) => {
+    return {
+        success: `the answer = ${answer2}. coz everything is good.`,
+        failure: `the answer = ${answer2}. coz everything is fucking trash.`
+    };
+};
+
+export function getTemplateStringsExample1_3() {
+    return messages[ "success" ];
+}
+export function getTemplateStringsExample1_4() {
+    return messages[ "failure" ];
+}
+
+export function getTemplateStringsExample1_5() {
+    let answer = "\"this is overriding answer?\"";
+    return messages[ "failure" ];
+}
+
+export function getTemplateStringsExample1_6() {
+    return messages2(overridingAnswer)[ "failure" ];
+}
+
 function getTaggedTemplateStringsExample(strings, ...values) {
     let formattedResult = "strings[";
     let i = 0;

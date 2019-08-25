@@ -1,14 +1,24 @@
 'use strict';
 
 import { ElementNotFoundError } from "../../utils/scripts/ElementNotFoundError.mjs";
-import { getTemplateStringsExample1_1 } from "./example1.mjs";
 import {BadPrimaryExampleNumberError} from "./BadPrimaryExampleNumberError.mjs";
 import {BadSecondaryExampleNumberError} from "./BadSecondaryExampleNumberError.mjs";
-import {getTemplateStringsExample1_2} from "./example1.mjs";
+import {
+    getTemplateStringsExample1_1,
+    getTemplateStringsExample1_2,
+    getTemplateStringsExample1_3,
+    getTemplateStringsExample1_4,
+    getTemplateStringsExample1_5,
+    getTemplateStringsExample1_6
+} from "./example1.mjs";
 
 export function templateStringsExamples() {
     addExampleAsChildOf( 1, 1, "divRoot");
     addExampleAsChildOf( 1, 2, "divRoot");
+    addExampleAsChildOf( 1, 3, "divRoot");
+    addExampleAsChildOf( 1, 4, "divRoot");
+    addExampleAsChildOf( 1, 5, "divRoot");
+    addExampleAsChildOf( 1, 6, "divRoot");
 }
 
 export function addExampleAsChildOf( primaryExampleNumber, secondaryExampleNumber, elementId ) {
@@ -60,6 +70,14 @@ function getTemplateStringExample( primaryExampleNumber, secondaryExampleNumber 
                     return getTemplateStringsExample1_1();
                 case 2:
                     return getTemplateStringsExample1_2();
+                case 3:
+                    return getTemplateStringsExample1_3();
+                case 4:
+                    return getTemplateStringsExample1_4();
+                case 5:
+                    return getTemplateStringsExample1_5();
+                case 6:
+                    return getTemplateStringsExample1_6();
                 default:
                     throw new BadSecondaryExampleNumberError(primaryExampleNumber, secondaryExampleNumber);
             }
