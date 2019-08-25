@@ -1,7 +1,7 @@
 'use strict';
 
 import { toJsonIfJsonString } from "../../utils/scripts/jsonUtils.mjs";
-import { isStartingPoint, checkDirections } from "./checkTable.mjs";
+import { isStartingPoint, checkDirections, isProperLength } from "./checkTable.mjs";
 
 export function setElementToCheckTableWithMessages(elemId, arrayJsonString ) {
     document.getElementById( elemId ).value = checkArrayValidity(

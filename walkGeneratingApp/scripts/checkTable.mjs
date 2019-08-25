@@ -5,9 +5,7 @@ export const checkDirections = directionsArray => {
     return true;
 };
 
-function isProperLength( directionsArray ) {
-    return directionsArray.length === 10;
-}
+export const isProperLength = directionsArray => directionsArray.length === 10;
 
 export const isStartingPoint = ( x, y ) => x === 0 && y === 0;
 
