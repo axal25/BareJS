@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title id="title">Walk Generating App:
         Recruitment Programming Task:
-        Internship - LunarLogic
+        One particular company
     </title>
     <link rel = "stylesheet"
           type = "text/css"
@@ -16,28 +16,25 @@
             <h1 id="h1.1">default "h1.1"</h1>
             <script>document.getElementById('h1.1').innerText = document.getElementById('title').innerText</script>
             <script type="module">
-                import { adjustHeaderHeight } from "./scripts/modHeaderHeight.mjs";
+                import { adjustHeaderHeight } from "../utils/scripts/modHeaderHeight.mjs";
                 adjustHeaderHeight();
             </script>
             <a href="https://unsplash.com/photos/QQ9LainS6tI">Photo by Nate Grant on Unsplash</a> <br>
             <a href="../index.html">go back to Index</a>
         </header>
         <div id="problem">
-            <p style="font-size: 50px; text-align: left">&ldquo;</p>
-            <h3>Programming task </h3>
-            Below you can find a description of a programming task we’d like you to complete. Please read it and submit your solution. You can use whatever programming language you want.
-            <br/>
-            <br/>
-            You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk.
-            The city provides its citizens with a Walk Generating App on their phones - everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. [‘n’, ‘s’, ‘w’, ‘e’]).
-            You always walk only a single block in a direction and you know it takes you one minute to traverse one city block.
-            <br/>
-            <br/>
-            Create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don’t want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
-            <br/>
-            <br/>
-            Note: your function will always receive a valid array containing a random assortment of direction letters (‘n’, ‘s’, ‘e’, or ‘w’ only). It will never give you an empty array (that’s not a walk, that’s standing still!).
-            <p style="font-size: 50px; text-align: right">&rdquo;</p>
+            <div id="originalProblem">
+                <p style="font-size: 50px; text-align: left">&ldquo;</p>
+                <h3>Programming task </h3>
+                You will be receiving an array of strings ('n', 's', 'e' or 'w'). <br/>
+                Each value in the cell of array represents distance you can walk in 1 minute in given direction. <br/>
+                Array you will receive is always valid. <br/>
+                Array is never empty. <br/>
+                Your task is to verify if you can travel the given route in exactly 10 minutes, <br/>
+                while also returning to the starting point. <br/>
+                Return boolean (true or false).
+                <p style="font-size: 50px; text-align: right">&rdquo;</p>
+            </div>
         </div>
         <div id="solution">
             <h3>Solution:</h3>
@@ -56,16 +53,24 @@
                 </form>
             </p>
             <p>
+            <form>
+                Check arrays output (without messages - in compliance with specification): <br/>
+                <input type="text" id="checkTableOutput" value="Not Generated Yet." style="width: 50em"/> <br/>
+                <input id="checkTable10SizeButton" type="button" value="Check Array #1"/>
+                <input id="checkTableRandomSizeButton" type="button" value="Check Array #2"/>
+            </form>
+            </p>
+            <p>
                 <form>
-                    Random Element Number Random Array Output: <br/>
-                    <input type="text" id="checkTableOutput" value="Not Generated Yet." style="width: 50em"/> <br/>
-                    <input id="checkTable10SizeButton" type="button" value="Check Array #1"/>
-                    <input id="checkTableRandomSizeButton" type="button" value="Check Array #2"/>
+                    Check arrays output (with messages): <br/>
+                    <input type="text" id="checkTableWithMessagesOutput" value="Not Generated Yet." style="width: 50em"/> <br/>
+                    <input id="checkTable10SizeWithMessagesButton" type="button" value="Check Array #1"/>
+                    <input id="checkTableRandomSizeWithMessagesButton" type="button" value="Check Array #2"/>
                 </form>
             </p>
             <script type="module">
                 import { setElementOnClickToFunction, setElementTo10SizeRandomTable, setElementToRandomSizeTable } from "./scripts/genTables.mjs";
-                import { setElementToCheckTable } from "./scripts/checkTable.mjs";
+                import { setElementToCheckTable, setElementToCheckTableWithMessages } from "./scripts/checkTable.mjs";
                 setElementOnClickToFunction(
                     "gen10ElementRandomArrayButton",
                     function () {
@@ -90,13 +95,26 @@
                         setElementToCheckTable( "checkTableOutput", document.getElementById("genRandomElementArrayOutput").value )
                     }
                 );
+                setElementOnClickToFunction(
+                    "checkTable10SizeWithMessagesButton",
+                    function () {
+                        setElementToCheckTableWithMessages( "checkTableWithMessagesOutput", document.getElementById("gen10ElementRandomArrayOutput").value )
+                    }
+                );
+                setElementOnClickToFunction(
+                    "checkTableRandomSizeWithMessagesButton",
+                    function () {
+                        setElementToCheckTableWithMessages( "checkTableWithMessagesOutput", document.getElementById("genRandomElementArrayOutput").value )
+                    }
+                );
             </script>
         </div>
         <p id="sources">
-            The programming task is taken straight out of... <br/>
-            <a href="https://internships.lunarlogic.io/">Application From</a> <br/>
-            Solution is my own.
         </p>
+        <script type="module">
+            import { createButtonSources } from "./scripts/displaySources.mjs";
+            createButtonSources();
+        </script>
         <a href="../index.html">back to Index</a>
     </body>
 </html>

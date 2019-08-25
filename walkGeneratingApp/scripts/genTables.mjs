@@ -1,10 +1,13 @@
 'use strict';
 
 import { toJsonStringIfJson } from '../../utils/scripts/jsonUtils.mjs';
+import { ElementNotFoundError } from '../../utils/scripts/ElementNotFoundError.mjs';
 
 export function setElementOnClickToFunction( elemId, aFunction ) {
     if( isFunction( aFunction ) ) {
-        document.getElementById( elemId ).onclick = aFunction;
+        let element = document.getElementById( elemId );
+        if( element ) element.onclick = aFunction;
+        else throw new ElementNotFoundError( elemId );
     }
     else throw new Error( "Parameter #2 of function setElementOnClickToFunction( elemId, aFunction ) is not a function. " + aFunction + " is not a function.");
 }

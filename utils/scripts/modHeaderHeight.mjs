@@ -1,6 +1,6 @@
 'use strict';
 
-import { toFormattedJsonStringIfJson } from "../../utils/scripts/jsonUtils.mjs";
+import { toFormattedJsonStringIfJson } from "./jsonUtils.mjs";
 
 export function adjustHeaderHeight() {
     adjustHeaderHeightForH1StringLength();
