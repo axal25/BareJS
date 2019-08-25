@@ -77,3 +77,11 @@ function checkDirectionsWithMessages( directionsArray ) {
         return answer;
     }
 }
+
+const foo2 = ( arg ) => {
+    return arg;
+}
+
+const foo = function (arg) {
+    return arg;
+};

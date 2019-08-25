@@ -1,3 +1,10 @@
+"use strict";
+
+/************************************************************************
+ ************************* DELETE EXPORT KEYWORD ************************
+ **************************** before sending ****************************
+ ************************************************************************/
+
 export const checkDirections = directionsArray => {
     if( !isProperLength( directionsArray ) ) return false;
     let finishCoordinates = getFinishPoint( directionsArray );
@@ -14,7 +21,7 @@ const getObjectCoordinates = (x, y) => ({x: x,y: y});
 const getFinishPoint = ( directionsArray ) => {
     let currentCoordinates = getObjectCoordinates( 0, 0 );
     directionsArray.forEach( direction => {
-            let deltaCoordinates = directionsToDeltaCoordinates[ direction ];
+            const deltaCoordinates = directionsToDeltaCoordinates[ direction ];
             currentCoordinates.x += deltaCoordinates.x;
             currentCoordinates.y += deltaCoordinates.y;
         }
