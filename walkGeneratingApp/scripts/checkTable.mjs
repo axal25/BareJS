@@ -1,11 +1,7 @@
 export const checkDirections = directionsArray => {
-    console.log(`before if( !isProperLength ) return false;`);
     if( !isProperLength( directionsArray ) ) return false;
-    console.log(`before let finishCoordinates = getFinishPoint( directionsArray );`);
     let finishCoordinates = getFinishPoint( directionsArray );
-    console.log(`before if( !isStartingPoint( finishCoordinates.x, finishCoordinates.y ) ) return false;`);
     if( !isStartingPoint( finishCoordinates.x, finishCoordinates.y ) ) return false;
-    console.log(`after if( !isStartingPoint( finishCoordinates.x, finishCoordinates.y ) ) return false;\nSo TRUE.`);
     return true;
 };
 
