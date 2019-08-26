@@ -59,7 +59,7 @@ function createDivForExample( primaryExampleNumber, secondaryExampleNumber ) {
     div.appendChild( textarea );
     textarea.innerHTML = replaceNewLineWithHTMLSpecialChars( getTemplateStringExample( primaryExampleNumber, secondaryExampleNumber ) );
     textarea.style.height = "150px";
-    textarea.style.width = "50em";
+    textarea.style.width = "795px";
 
     return div;
 }
