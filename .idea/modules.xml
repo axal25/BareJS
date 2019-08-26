@@ -11,8 +11,10 @@
       <module fileurl="file://$PROJECT_DIR$/lightBulbOnOff/lightBulbOnOff.iml" filepath="$PROJECT_DIR$/lightBulbOnOff/lightBulbOnOff.iml" />
       <module fileurl="file://$PROJECT_DIR$/messageTypes/messageTypes.iml" filepath="$PROJECT_DIR$/messageTypes/messageTypes.iml" />
       <module fileurl="file://$PROJECT_DIR$/statementsAndKeywords/statementsAndKeywords.iml" filepath="$PROJECT_DIR$/statementsAndKeywords/statementsAndKeywords.iml" />
+      <module fileurl="file://$PROJECT_DIR$/templateStrings/templateStrings.iml" filepath="$PROJECT_DIR$/templateStrings/templateStrings.iml" />
       <module fileurl="file://$PROJECT_DIR$/useStrict/useStrict.iml" filepath="$PROJECT_DIR$/useStrict/useStrict.iml" />
       <module fileurl="file://$PROJECT_DIR$/utils/utils.iml" filepath="$PROJECT_DIR$/utils/utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/walkGeneratingApp/walkGeneratingApp.iml" filepath="$PROJECT_DIR$/walkGeneratingApp/walkGeneratingApp.iml" />
     </modules>
   </component>
 </project>
