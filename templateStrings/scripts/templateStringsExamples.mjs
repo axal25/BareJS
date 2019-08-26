@@ -55,9 +55,11 @@ function createDivForExample( primaryExampleNumber, secondaryExampleNumber ) {
     h2.innerText = getH2ExampleInnerTextTemplate( primaryExampleNumber, secondaryExampleNumber );
     div.appendChild( h2 );
 
-    let p = document.createElement( "p" );
-    div.appendChild( p );
-    p.innerHTML = replaceNewLineWithBr( getTemplateStringExample( primaryExampleNumber, secondaryExampleNumber) );
+    let textarea = document.createElement( "textarea");
+    div.appendChild( textarea );
+    textarea.innerHTML = replaceNewLineWithHTMLSpecialChars( getTemplateStringExample( primaryExampleNumber, secondaryExampleNumber ) );
+    textarea.style.height = "150px";
+    textarea.style.width = "50em";
 
     return div;
 }
@@ -89,5 +91,10 @@ function getTemplateStringExample( primaryExampleNumber, secondaryExampleNumber 
 
 function replaceNewLineWithBr( string ) {
     string = string.replace(/\n/g,"<br/>");
+    return string;
+}
+
+function replaceNewLineWithHTMLSpecialChars( string ) {
+    string = string.replace(/\n/g,"&#13;&#10;");
     return string;
 }

@@ -15,17 +15,17 @@ export function getTemplateStringsExample1_2() {
         "\n" + getTaggedTemplateStringsExample`a = ${a}\nb = ${b}\nc = ${c}\na + b + c = ${ a + b + c }` + "\n";
 }
 
-const answer = `abbbaaasdadqwdqwdasd`;
-const overridingAnswer = `"this is overriding answer?"`;
+const answer = `"default global (in file) answer"`;
+const overridingAnswer = `"this is overriding answer (passed as argument)"`;
 const messages = {
-    success: `the answer = ${answer}. coz everything is good.`,
-    failure: `the answer = ${answer}. coz everything is fucking trash.`
+    success: `the answer = ${answer}. because everything is good.`,
+    failure: `the answer = ${answer}. because something went wrong.`
 };
 
 const messages2 = ( answer2 ) => {
     return {
-        success: `the answer = ${answer2}. coz everything is good.`,
-        failure: `the answer = ${answer2}. coz everything is fucking trash.`
+        success: `the answer = ${answer2}. because everything is good.`,
+        failure: `the answer = ${answer2}. because something went wrong.`
     };
 };
 
